@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var original_speed = 50.0;
+var original_speed = 80.0;
 var actual_speed = original_speed;
 var is_dash_ready = true;
 
@@ -23,7 +23,7 @@ func movement():
 	move_and_slide();
 
 func dash():
-	actual_speed = original_speed * 4;
+	actual_speed = original_speed * 3;
 	## starta o timer de 0.5 segundos.
 	$Timer.start();
 
