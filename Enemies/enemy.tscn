@@ -8,6 +8,44 @@ load_path = "res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.cte
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
 size = Vector2(117, 120)
 
+[sub_resource type="Animation" id="Animation_3ih25"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_bxkaj"]
+resource_name = "wobble"
+length = 1.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.08726646, 0.0, -0.08726646]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_47qgu"]
+_data = {
+&"RESET": SubResource("Animation_3ih25"),
+&"wobble": SubResource("Animation_bxkaj")
+}
+
 [node name="Enemy" type="CharacterBody2D" unique_id=668914388]
 motion_mode = 1
 script = ExtResource("1_3ih25")
@@ -19,3 +57,6 @@ texture = SubResource("CompressedTexture2D_bxkaj")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=329784307]
 position = Vector2(0.5, 0)
 shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1954978298]
+libraries/ = SubResource("AnimationLibrary_47qgu")
