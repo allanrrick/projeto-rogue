@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://db6u5ry6npflh"]
 
 [ext_resource type="Texture2D" uid="uid://4xcah76urpvb" path="res://Assets/grass-tile.png" id="1_gjdyk"]
+[ext_resource type="PackedScene" uid="uid://b6yx1ghf3q12n" path="res://Scenes/player.tscn" id="2_p6gg1"]
 
 [node name="Scene" type="Node2D" unique_id=994620687]
 
@@ -10,3 +11,5 @@ texture_repeat = 2
 texture = ExtResource("1_gjdyk")
 region_enabled = true
 region_rect = Rect2(-1000, -1000, 1000, 1000)
+
+[node name="Player" parent="." unique_id=97180810 instance=ExtResource("2_p6gg1")]
