@@ -2,11 +2,14 @@ extends CharacterBody2D
 
 var original_speed = 50.0;
 var actual_speed = original_speed;
+var is_dash_ready = true;
 
 ## chama a função 60 vezes por segundo
 func _physics_process(delta):
 	movement();
-	if Input.is_action_just_pressed("dash"):
+	if Input.is_action_just_pressed("dash") and is_dash_ready:
+		is_dash_ready = false;
+		$DashCooldown.start();
 		dash();
 
 func movement():
@@ -27,3 +30,6 @@ func dash():
 ## signal recebido quando o timer acaba.
 func _on_timer_timeout() -> void:
 	actual_speed = original_speed;
+
+func _on_dash_cooldown_timeout() -> void:
+	is_dash_ready = true;

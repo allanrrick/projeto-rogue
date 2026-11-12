@@ -14,4 +14,8 @@ texture = ExtResource("1_v0iea")
 wait_time = 0.5
 one_shot = true
 
+[node name="DashCooldown" type="Timer" parent="." unique_id=1312902815]
+one_shot = true
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="DashCooldown" to="." method="_on_dash_cooldown_timeout"]
