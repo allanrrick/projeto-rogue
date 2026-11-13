@@ -49,17 +49,16 @@ script = ExtResource("1_cvnsp")
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_bhunq")
 animation = &"walk"
-frame_progress = 0.92310923
+frame_progress = 0.34542254
 
 [node name="DashTimer" type="Timer" parent="." unique_id=132837414]
-wait_time = 0.5
+wait_time = 0.2
 one_shot = true
 
 [node name="DashCooldown" type="Timer" parent="." unique_id=1312902815]
 one_shot = true
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=493147447]
-zoom = Vector2(0.5, 0.5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1408280592]
 position = Vector2(0, 3)
