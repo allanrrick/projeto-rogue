@@ -2,7 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://4xcah76urpvb" path="res://Assets/grass-tile.png" id="1_gjdyk"]
 [ext_resource type="PackedScene" uid="uid://b6yx1ghf3q12n" path="res://Scenes/player.tscn" id="2_p6gg1"]
-[ext_resource type="Script" uid="uid://dv584g2ix6yfo" path="res://Scenes/hud.gd" id="3_lrus4"]
+[ext_resource type="PackedScene" uid="uid://cm4tvgah0algt" path="res://Enemies/enemy.tscn" id="3_lrus4"]
+[ext_resource type="Script" uid="uid://dv584g2ix6yfo" path="res://Scenes/hud.gd" id="4_hud"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lrus4"]
 bg_color = Color(0.055173576, 0.74277526, 0.091015704, 1)
@@ -20,10 +21,13 @@ texture = ExtResource("1_gjdyk")
 region_enabled = true
 region_rect = Rect2(-1000, -1000, 1000, 1000)
 
-[node name="Player" parent="." unique_id=97180810 instance=ExtResource("2_p6gg1")]
+[node name="Player" parent="." unique_id=97180810 groups=["player"] instance=ExtResource("2_p6gg1")]
+
+[node name="Enemy" parent="." unique_id=668914388 instance=ExtResource("3_lrus4")]
+position = Vector2(337, -263)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1530858130]
-script = ExtResource("3_lrus4")
+script = ExtResource("4_hud")
 
 [node name="ProgressBar" type="ProgressBar" parent="CanvasLayer" unique_id=938694572]
 anchors_preset = -1
