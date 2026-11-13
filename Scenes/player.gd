@@ -33,8 +33,6 @@ func movement():
 	
 	velocity = dir.normalized() * actual_speed;
 	move_and_slide();
-	
-	
 
 func dash():
 	actual_speed = original_speed * 3;

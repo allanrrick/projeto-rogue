@@ -48,8 +48,8 @@ script = ExtResource("1_cvnsp")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=726820664]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_bhunq")
-animation = &"idle"
-frame_progress = 0.050560385
+animation = &"walk"
+frame_progress = 0.92310923
 
 [node name="DashTimer" type="Timer" parent="." unique_id=132837414]
 wait_time = 0.5
