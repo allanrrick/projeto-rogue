@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://4xcah76urpvb" path="res://Assets/grass-tile.png" id="1_gjdyk"]
 [ext_resource type="PackedScene" uid="uid://b6yx1ghf3q12n" path="res://Scenes/player.tscn" id="2_p6gg1"]
 [ext_resource type="PackedScene" uid="uid://cm4tvgah0algt" path="res://Enemies/enemy.tscn" id="3_lrus4"]
-[ext_resource type="Script" uid="uid://dv584g2ix6yfo" path="res://Scenes/hud.gd" id="4_hud"]
+[ext_resource type="Script" uid="uid://bv6qal1estvej" path="res://Scenes/hud.gd" id="4_hud"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lrus4"]
 bg_color = Color(0.055173576, 0.74277526, 0.091015704, 1)
