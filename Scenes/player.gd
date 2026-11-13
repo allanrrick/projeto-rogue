@@ -3,6 +3,7 @@ extends CharacterBody2D
 var original_speed = 80.0;
 var actual_speed = original_speed;
 var is_dash_ready = true;
+@onready var sprite = $AnimatedSprite2D
 
 ## chama a função 60 vezes por segundo
 func _physics_process(delta):
@@ -18,14 +19,27 @@ func movement():
 	var y_mov = Input.get_action_strength("down") - Input.get_action_strength("up");
 	## Vector2 que indica a direção em que o jogador está se movendo.
 	var dir = Vector2(x_mov, y_mov);
-	print(dir);
+	
+	if dir.x > 0:
+		sprite.flip_h = false;
+		sprite.play("walk");
+	elif dir.x < 0:
+		sprite.flip_h = true;
+		sprite.play("walk");
+	elif dir.y > 0 or dir.y < 0:
+		sprite.play("walk");
+	else:
+		sprite.play("idle");
+	
 	velocity = dir.normalized() * actual_speed;
 	move_and_slide();
+	
+	
 
 func dash():
 	actual_speed = original_speed * 3;
 	## starta o timer de 0.5 segundos.
-	$Timer.start();
+	$DashTimer.start();
 
 ## signal recebido quando o timer acaba.
 func _on_timer_timeout() -> void:

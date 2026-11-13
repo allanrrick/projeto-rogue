@@ -1,19 +1,57 @@
 [gd_scene format=3 uid="uid://b6yx1ghf3q12n"]
 
 [ext_resource type="Script" uid="uid://bfq7uai4w7g1g" path="res://Scenes/player.gd" id="1_cvnsp"]
-[ext_resource type="Texture2D" uid="uid://cj8d52r168l0i" path="res://icon.svg" id="1_v0iea"]
+[ext_resource type="Texture2D" uid="uid://do2jvmq7gauvt" path="res://Assets/Player/player.png" id="2_cvnsp"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_cvnsp"]
-size = Vector2(117, 120)
+[sub_resource type="AtlasTexture" id="AtlasTexture_cvnsp"]
+atlas = ExtResource("2_cvnsp")
+region = Rect2(0, 0, 30, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6t5aa"]
+atlas = ExtResource("2_cvnsp")
+region = Rect2(30, 0, 30, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vgqql"]
+atlas = ExtResource("2_cvnsp")
+region = Rect2(60, 0, 30, 40)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bhunq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cvnsp")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6t5aa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vgqql")
+}],
+"loop": 1,
+"name": &"walk",
+"speed": 4.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cvnsp"]
+radius = 5.0
+height = 22.0
 
 [node name="Player" type="CharacterBody2D" unique_id=97180810]
 motion_mode = 1
 script = ExtResource("1_cvnsp")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1897826359]
-texture = ExtResource("1_v0iea")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=726820664]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_bhunq")
+animation = &"idle"
+frame_progress = 0.050560385
 
-[node name="Timer" type="Timer" parent="." unique_id=132837414]
+[node name="DashTimer" type="Timer" parent="." unique_id=132837414]
 wait_time = 0.5
 one_shot = true
 
@@ -24,8 +62,8 @@ one_shot = true
 zoom = Vector2(0.5, 0.5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1408280592]
-position = Vector2(0.5, 0)
-shape = SubResource("RectangleShape2D_cvnsp")
+position = Vector2(0, 3)
+shape = SubResource("CapsuleShape2D_cvnsp")
 
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="DashTimer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="DashCooldown" to="." method="_on_dash_cooldown_timeout"]
