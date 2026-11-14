@@ -1,7 +1,7 @@
 extends CanvasLayer
 
 @onready var player = $"../Player"
-@onready var barra_vida = $ProgressBar
+@onready var barra_vida = $"../Player/ProgressBar"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
