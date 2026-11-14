@@ -15,6 +15,8 @@ func _on_area_entered(area: Area2D) -> void:
 			disableTimer.start();
 			var damage = area.damage;
 			hurt.emit(damage);
+			if area.has_method("enemy_hit"):
+				area.enemy_hit(1);
 
 func _on_disable_timer_timeout() -> void:
 	## habilita collision shape quando o cooldown terminar
