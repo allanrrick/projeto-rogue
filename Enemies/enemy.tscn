@@ -76,6 +76,8 @@ size = Vector2(15, 29)
 size = Vector2(10.5, 22)
 
 [node name="Enemy" type="CharacterBody2D" unique_id=668914388]
+collision_layer = 4
+collision_mask = 4
 motion_mode = 1
 script = ExtResource("1_3ih25")
 
@@ -93,8 +95,8 @@ shape = SubResource("CapsuleShape2D_lrus4")
 libraries/ = SubResource("AnimationLibrary_47qgu")
 
 [node name="HurtBox" parent="." unique_id=1460403530 instance=ExtResource("3_572h1")]
-collision_layer = 2
-collision_mask = 2
+collision_layer = 4
+collision_mask = 4
 
 [node name="CollisionShape2D" parent="HurtBox" index="0" unique_id=1960352396]
 light_mask = 4
@@ -103,8 +105,8 @@ position = Vector2(1.5, 4.5)
 shape = SubResource("RectangleShape2D_5iikr")
 
 [node name="HitBox" parent="." unique_id=1350827808 instance=ExtResource("4_rt1x0")]
-collision_layer = 4
-collision_mask = 4
+collision_layer = 2
+collision_mask = 2
 
 [node name="CollisionShape2D" parent="HitBox" index="0" unique_id=444474895]
 position = Vector2(1.25, 5)
