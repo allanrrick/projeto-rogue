@@ -58,8 +58,13 @@ func receber_dano(quantidade: int) -> void:
 		return
 	vida_atual = max(vida_atual - quantidade, 0)
 	vida_alterada.emit(vida_atual);
+	print(vida_atual);
 	if vida_atual <= 0:
 		morrer()
+
 func morrer() -> void:
 	esta_morto = true
 	velocity = Vector2.ZERO
+
+func _on_hurt_box_hurt(damage: Variant) -> void:
+	receber_dano(damage);

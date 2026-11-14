@@ -5,6 +5,7 @@ extends CharacterBody2D
 @onready var player: CharacterBody2D = get_tree().get_first_node_in_group("player")
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var anim: AnimationPlayer = $AnimationPlayer
+@export var hp = 10;
 
 func _ready() -> void:
 	anim.play("wobble")

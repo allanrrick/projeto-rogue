@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://dwh0r18h64mcb" path="res://Enemies/base_enemy.gd" id="1_3ih25"]
 [ext_resource type="Texture2D" uid="uid://dmfxnmiig2125" path="res://Assets/Enemies/skeleton_ph.png" id="2_bxkaj"]
+[ext_resource type="PackedScene" uid="uid://soxxpmjui745" path="res://Utility/hurt_box.tscn" id="3_572h1"]
+[ext_resource type="PackedScene" uid="uid://b7cccdovh8cq" path="res://Utility/hit_box.tscn" id="4_rt1x0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bxkaj"]
 atlas = ExtResource("2_bxkaj")
@@ -38,8 +40,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lrus4"]
-radius = 6.0
-height = 26.0
+radius = 4.0
+height = 20.0
 
 [sub_resource type="Animation" id="Animation_3ih25"]
 length = 0.001
@@ -67,6 +69,12 @@ _data = {
 &"wobble": SubResource("Animation_bxkaj")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5iikr"]
+size = Vector2(15, 29)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lvr6j"]
+size = Vector2(10.5, 22)
+
 [node name="Enemy" type="CharacterBody2D" unique_id=668914388]
 motion_mode = 1
 script = ExtResource("1_3ih25")
@@ -84,3 +92,24 @@ shape = SubResource("CapsuleShape2D_lrus4")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1954978298]
 libraries/ = SubResource("AnimationLibrary_47qgu")
+
+[node name="HurtBox" parent="." unique_id=1460403530 instance=ExtResource("3_572h1")]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" parent="HurtBox" index="0" unique_id=1960352396]
+light_mask = 4
+visibility_layer = 4
+position = Vector2(1.5, 4.5)
+shape = SubResource("RectangleShape2D_5iikr")
+
+[node name="HitBox" parent="." unique_id=1350827808 instance=ExtResource("4_rt1x0")]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" parent="HitBox" index="0" unique_id=444474895]
+position = Vector2(1.25, 5)
+shape = SubResource("RectangleShape2D_lvr6j")
+
+[editable path="HurtBox"]
+[editable path="HitBox"]
