@@ -76,6 +76,8 @@ size = Vector2(15, 29)
 size = Vector2(10.5, 22)
 
 [node name="Enemy" type="CharacterBody2D" unique_id=668914388]
+collision_layer = 4
+collision_mask = 3
 motion_mode = 1
 script = ExtResource("1_3ih25")
 
