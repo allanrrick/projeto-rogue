@@ -1,15 +1,36 @@
 extends CharacterBody2D
+
+## HP
 signal vida_alterada(vida_atual: int);
 @export var vida_maxima: int = 100;
 var vida_atual: int;
 var esta_morto = false;
+
+## Movement
 var original_speed = 80.0;
 var actual_speed = original_speed;
 var is_dash_ready = true;
 @onready var sprite = $AnimatedSprite2D
 
+## Attacks
+var fireBall = preload("res://Scenes/Player/fire_ball.tscn");
+
+## AttacksNodes
+@onready var fireBallTimer = get_node("%FireBallTimer");
+@onready var fireBallAttackTimer = get_node("%FireBallAttackTimer");
+
+# FireBall
+var fireball_ammo = 0;
+var fireball_baseammo = 1;
+var fireball_attackSpeed = 1.5;
+
+# Enemy
+var enemies_close = [];
+
 func _ready() -> void:
 	vida_atual = vida_maxima
+	attack();
+
 ## chama a função 60 vezes por segundo
 func _physics_process(delta):
 	if esta_morto:
@@ -68,3 +89,39 @@ func morrer() -> void:
 
 func _on_hurt_box_hurt(damage: Variant) -> void:
 	receber_dano(damage);
+
+func attack():
+	fireBallTimer.wait_time = fireball_attackSpeed;
+	if fireBallTimer.is_stopped():
+		fireBallTimer.start();
+
+
+func _on_fire_ball_timer_timeout() -> void:
+	fireball_ammo += fireball_baseammo;
+	fireBallAttackTimer.start();
+
+func _on_fire_ball_attack_timer_timeout() -> void:
+	if fireball_ammo > 0:
+		var fireball_attack = fireBall.instantiate();
+		fireball_attack.position = position;
+		fireball_attack.target = get_random_target();
+		add_child(fireball_attack);
+		fireball_ammo -= 1;
+		if fireball_ammo > 0:
+			fireBallAttackTimer.start();
+		else:
+			fireBallAttackTimer.stop();
+
+func get_random_target():
+	if enemies_close.size() > 0:
+		return enemies_close.pick_random().global_position;
+	else:
+		return Vector2.UP;
+
+func _on_enemy_scan_body_entered(body: Node2D) -> void:
+	if not enemies_close.has(body):
+		enemies_close.append(body);
+
+func _on_enemy_scan_body_exited(body: Node2D) -> void:
+	if enemies_close.has(body):
+		enemies_close.erase(body);

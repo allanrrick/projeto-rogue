@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://ch10e0101hhtm"]
+
+[ext_resource type="Texture2D" uid="uid://cccstdk7uebeu" path="res://Assets/Weapons/Fireball.png" id="1_solch"]
+[ext_resource type="Script" uid="uid://dw2yx1ybse0v" path="res://Scenes/Player/fire_ball.gd" id="1_vbcgg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bhunq"]
+size = Vector2(9.5, 9)
+
+[node name="FireBall" type="Area2D" unique_id=1175493526 groups=["attack"]]
+top_level = true
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("1_vbcgg")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1570272153]
+texture_filter = 1
+texture = ExtResource("1_solch")
+hframes = 60
+frame = 15
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=467541186]
+position = Vector2(-0.75, -0.5)
+shape = SubResource("RectangleShape2D_bhunq")
+
+[node name="Timer" type="Timer" parent="." unique_id=2104508420]
+wait_time = 5.0
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
