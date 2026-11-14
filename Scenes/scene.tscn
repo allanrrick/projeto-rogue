@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://db6u5ry6npflh"]
 
 [ext_resource type="Texture2D" uid="uid://4xcah76urpvb" path="res://Assets/grass-tile.png" id="1_gjdyk"]
-[ext_resource type="PackedScene" uid="uid://b6yx1ghf3q12n" path="res://Scenes/player.tscn" id="2_p6gg1"]
+[ext_resource type="PackedScene" uid="uid://b6yx1ghf3q12n" path="res://Scenes/Player/player.tscn" id="2_p6gg1"]
 [ext_resource type="PackedScene" uid="uid://cm4tvgah0algt" path="res://Enemies/enemy.tscn" id="3_lrus4"]
 [ext_resource type="Script" uid="uid://bv6qal1estvej" path="res://Scenes/hud.gd" id="4_hud"]
 [ext_resource type="PackedScene" uid="uid://c5lvfv3ecckjv" path="res://Utility/enemy_spawner.tscn" id="5_3bdrj"]
