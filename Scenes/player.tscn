@@ -1,30 +1,37 @@
 [gd_scene format=3 uid="uid://b6yx1ghf3q12n"]
 
 [ext_resource type="Script" uid="uid://bfq7uai4w7g1g" path="res://Scenes/player.gd" id="1_cvnsp"]
-[ext_resource type="Texture2D" uid="uid://do2jvmq7gauvt" path="res://Assets/Player/player.png" id="2_cvnsp"]
+[ext_resource type="Texture2D" uid="uid://ocsnxkwqo0yp" path="res://Assets/Player/player2.png" id="2_vgqql"]
 [ext_resource type="PackedScene" uid="uid://soxxpmjui745" path="res://Utility/hurt_box.tscn" id="3_6t5aa"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_cvnsp"]
-atlas = ExtResource("2_cvnsp")
-region = Rect2(0, 0, 30, 40)
+[sub_resource type="AtlasTexture" id="AtlasTexture_fkybt"]
+atlas = ExtResource("2_vgqql")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x3wgy"]
+atlas = ExtResource("2_vgqql")
+region = Rect2(48, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6t5aa"]
-atlas = ExtResource("2_cvnsp")
-region = Rect2(30, 0, 30, 40)
+atlas = ExtResource("2_vgqql")
+region = Rect2(0, 48, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vgqql"]
-atlas = ExtResource("2_cvnsp")
-region = Rect2(60, 0, 30, 40)
+atlas = ExtResource("2_vgqql")
+region = Rect2(48, 48, 48, 48)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_bhunq"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_cvnsp")
+"texture": SubResource("AtlasTexture_fkybt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x3wgy")
 }],
 "loop": 1,
 "name": &"idle",
-"speed": 5.0
+"speed": 2.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -52,8 +59,7 @@ script = ExtResource("1_cvnsp")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=726820664]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_bhunq")
-animation = &"walk"
-frame_progress = 0.34542254
+animation = &"idle"
 
 [node name="DashTimer" type="Timer" parent="." unique_id=132837414]
 wait_time = 0.2
