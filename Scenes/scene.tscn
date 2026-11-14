@@ -3,7 +3,11 @@
 [ext_resource type="Texture2D" uid="uid://4xcah76urpvb" path="res://Assets/grass-tile.png" id="1_gjdyk"]
 [ext_resource type="PackedScene" uid="uid://b6yx1ghf3q12n" path="res://Scenes/player.tscn" id="2_p6gg1"]
 [ext_resource type="PackedScene" uid="uid://cm4tvgah0algt" path="res://Enemies/enemy.tscn" id="3_lrus4"]
-[ext_resource type="Script" uid="uid://dv584g2ix6yfo" path="res://Scenes/hud.gd" id="4_hud"]
+[ext_resource type="Script" uid="uid://bv6qal1estvej" path="res://Scenes/hud.gd" id="4_hud"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hc1iw"]
+radius = 9.0
+height = 36.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lrus4"]
 bg_color = Color(0.055173576, 0.74277526, 0.091015704, 1)
@@ -15,6 +19,7 @@ corner_radius_bottom_left = 8
 [node name="Scene" type="Node2D" unique_id=994620687]
 
 [node name="Background" type="Sprite2D" parent="." unique_id=871745306]
+self_modulate = Color(0.6901961, 0.6901961, 0.6901961, 1)
 texture_filter = 1
 texture_repeat = 2
 texture = ExtResource("1_gjdyk")
@@ -24,7 +29,15 @@ region_rect = Rect2(-1000, -1000, 1000, 1000)
 [node name="Player" parent="." unique_id=97180810 groups=["player"] instance=ExtResource("2_p6gg1")]
 
 [node name="Enemy" parent="." unique_id=668914388 instance=ExtResource("3_lrus4")]
-position = Vector2(337, -263)
+position = Vector2(336, -258)
+
+[node name="areaDano" type="Area2D" parent="Enemy" unique_id=705642621]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy/areaDano" unique_id=1637490471]
+position = Vector2(1, 3)
+shape = SubResource("CapsuleShape2D_hc1iw")
+
+[node name="TimerDano" type="Timer" parent="Enemy" unique_id=558908385]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1530858130]
 script = ExtResource("4_hud")
@@ -41,3 +54,7 @@ offset_right = 180.76001
 offset_bottom = 58.440002
 theme_override_styles/fill = SubResource("StyleBoxFlat_lrus4")
 show_percentage = false
+
+[connection signal="body_entered" from="Enemy/areaDano" to="Enemy" method="_on_area_dano_body_entered"]
+[connection signal="body_exited" from="Enemy/areaDano" to="Enemy" method="_on_area_dano_body_exited"]
+[connection signal="timeout" from="Enemy/TimerDano" to="Enemy" method="_on_timer_dano_timeout"]
