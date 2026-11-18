@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bfq7uai4w7g1g" path="res://Scenes/Player/player.gd" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://ocsnxkwqo0yp" path="res://Assets/Player/player2.png" id="2_vgqql"]
 [ext_resource type="PackedScene" uid="uid://soxxpmjui745" path="res://Utility/hurt_box.tscn" id="3_6t5aa"]
+[ext_resource type="AudioStream" uid="uid://b40cgicarowcd" path="res://Projeto_novo.wav" id="4_mtuoh"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fkybt"]
 atlas = ExtResource("2_vgqql")
@@ -102,6 +103,10 @@ monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyScan" unique_id=1026898205]
 shape = SubResource("CircleShape2D_bhunq")
+
+[node name="SomDano" type="AudioStreamPlayer" parent="." unique_id=655252469]
+stream = ExtResource("4_mtuoh")
+max_polyphony = 2
 
 [connection signal="timeout" from="DashTimer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="DashCooldown" to="." method="_on_dash_cooldown_timeout"]

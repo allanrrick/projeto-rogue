@@ -11,6 +11,7 @@ var original_speed = 80.0;
 var actual_speed = original_speed;
 var is_dash_ready = true;
 @onready var sprite = $AnimatedSprite2D
+@onready var som_dano: AudioStreamPlayer = $SomDano
 
 ## Attacks
 var fireBall = preload("res://Scenes/Player/fire_ball.tscn");
@@ -78,6 +79,7 @@ func receber_dano(quantidade: int) -> void:
 	if esta_morto or quantidade <= 0:
 		return
 	vida_atual = max(vida_atual - quantidade, 0)
+	som_dano.play();
 	vida_alterada.emit(vida_atual);
 	print(vida_atual);
 	if vida_atual <= 0:
