@@ -19,10 +19,10 @@ func movement():
 	var direction: Vector2 = global_position.direction_to(player.global_position)
 	
 	if direction.x > 0:
-		sprite.flip_h = true;
+		sprite.flip_h = false;
 		sprite.play("walk");
 	elif direction.x < 0:
-		sprite.flip_h = false;
+		sprite.flip_h = true;
 		sprite.play("walk");
 	elif direction.y > 0 or direction.y < 0:
 		sprite.play("walk");
