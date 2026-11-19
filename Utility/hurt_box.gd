@@ -3,7 +3,7 @@ extends Area2D
 @onready var collision = $CollisionShape2D
 @onready var disableTimer = $DisableTimer
 
-signal hurt(damage)
+signal hurt(damage, angle, knockback)
 
 ## executa quando duas areas colidirem
 func _on_area_entered(area: Area2D) -> void:
@@ -14,7 +14,10 @@ func _on_area_entered(area: Area2D) -> void:
 			## inicia cooldown pro ataque
 			disableTimer.start();
 			var damage = area.damage;
-			hurt.emit(damage);
+			var angle = area.get("angle") if area.get("angle") else Vector2.ZERO
+			var knockback = area.get("knockback_strength") if area.get("knockback_strength") else 1
+			
+			hurt.emit(damage, angle, knockback);
 			if area.has_method("enemy_hit"):
 				area.enemy_hit(1);
 
