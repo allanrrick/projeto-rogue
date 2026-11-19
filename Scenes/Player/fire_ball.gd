@@ -3,6 +3,7 @@ extends Area2D
 var speed = 100;
 var damage = 5;
 var attack_size = 1.0;
+var knockback_strength = 50
 var hp = 1;
 
 var target = Vector2.ZERO;
