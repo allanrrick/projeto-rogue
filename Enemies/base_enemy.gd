@@ -47,3 +47,5 @@ func _on_hurt_box_hurt(damage: Variant, angle: Variant, knockback_strength: Vari
 	if hp <= 0:
 		remove_from_array.emit(self)
 		queue_free();
+	else:
+		anim.play("hitflash")
