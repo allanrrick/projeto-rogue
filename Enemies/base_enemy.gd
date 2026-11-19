@@ -6,9 +6,12 @@ extends CharacterBody2D
 @export var knockback_recovery = 3.5
 var knockback = Vector2.ZERO
 
+
 @onready var player: CharacterBody2D = get_tree().get_first_node_in_group("player")
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var anim: AnimationPlayer = $AnimationPlayer
+
+const EXPLOSION_PARTICLE = preload("res://Assets/Shaders/pixel_explosion_particle.tscn")
 
 signal remove_from_array(object: Object) #Sinal emitido para a hurtbox do tipo HitOnce 
 
@@ -46,6 +49,10 @@ func _on_hurt_box_hurt(damage: Variant, angle: Variant, knockback_strength: Vari
 	knockback = angle * knockback_strength
 	if hp <= 0:
 		remove_from_array.emit(self)
+		var death_particle = EXPLOSION_PARTICLE.instantiate()
+		get_tree().current_scene.add_child(death_particle)
+		death_particle.emit(sprite)
 		queue_free();
 	else:
 		anim.play("hitflash")
+		
