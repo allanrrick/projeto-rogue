@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bfq7uai4w7g1g" path="res://Scenes/Player/player.gd" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://ocsnxkwqo0yp" path="res://Assets/Player/player2.png" id="2_vgqql"]
 [ext_resource type="PackedScene" uid="uid://soxxpmjui745" path="res://Utility/hurt_box.tscn" id="3_6t5aa"]
-[ext_resource type="AudioStream" uid="uid://b40cgicarowcd" path="res://hitPlayer2.wav" id="4_mtuoh"]
+[ext_resource type="AudioStream" uid="uid://8bmwnqv1t4lp" path="res://hitPlayer3.wav" id="4_htcer"]
 [ext_resource type="AudioStream" uid="uid://ibgtjndqoot8" path="res://fireBallSound.wav" id="5_htcer"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fkybt"]
@@ -106,7 +106,8 @@ monitorable = false
 shape = SubResource("CircleShape2D_bhunq")
 
 [node name="SomDano" type="AudioStreamPlayer" parent="." unique_id=655252469]
-stream = ExtResource("4_mtuoh")
+stream = ExtResource("4_htcer")
+volume_db = -5.2
 max_polyphony = 2
 
 [node name="fireBallSound" type="AudioStreamPlayer" parent="." unique_id=979954993]
