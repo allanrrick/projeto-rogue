@@ -12,6 +12,7 @@ var actual_speed = original_speed;
 var is_dash_ready = true;
 @onready var sprite = $AnimatedSprite2D
 @onready var som_dano: AudioStreamPlayer = $SomDano
+@onready var som_fireBall: AudioStreamPlayer = $fireBallSound
 
 ## Attacks
 var fireBall = preload("res://Scenes/Player/fire_ball.tscn");
@@ -108,6 +109,7 @@ func _on_fire_ball_attack_timer_timeout() -> void:
 		fireball_attack.position = position;
 		fireball_attack.target = get_random_target();
 		add_child(fireball_attack);
+		som_fireBall.play()
 		fireball_ammo -= 1;
 		if fireball_ammo > 0:
 			fireBallAttackTimer.start();
