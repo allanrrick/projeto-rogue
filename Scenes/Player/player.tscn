@@ -2,14 +2,12 @@
 
 [ext_resource type="Script" uid="uid://bfq7uai4w7g1g" path="res://Scenes/Player/player.gd" id="1_cvnsp"]
 [ext_resource type="Shader" uid="uid://drkprdve5vj8m" path="res://Assets/Shaders/hit_flash.gdshader" id="2_mtuoh"]
+[ext_resource type="Texture2D" uid="uid://bo815tilkj7r4" path="res://Assets/Player/char_sheet.png" id="2_xpcdj"]
 [ext_resource type="PackedScene" uid="uid://soxxpmjui745" path="res://Utility/hurt_box.tscn" id="3_6t5aa"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rt1x0"]
 shader = ExtResource("2_mtuoh")
 shader_parameter/active = false
-
-[ext_resource type="Texture2D" uid="uid://bo815tilkj7r4" path="res://Assets/Player/char_sheet.png" id="2_xpcdj"]
-[ext_resource type="PackedScene" uid="uid://soxxpmjui745" path="res://Utility/hurt_box.tscn" id="3_6t5aa"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mtuoh"]
 atlas = ExtResource("2_xpcdj")
@@ -33,7 +31,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_mtuoh")
 }],
-"loop": 1,
+"loop": true,
 "name": &"idle",
 "speed": 2.0
 }, {
@@ -47,7 +45,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_0u5uq")
 }],
-"loop": 1,
+"loop": true,
 "name": &"walk",
 "speed": 4.0
 }]
@@ -79,7 +77,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_dd0ac"]
 resource_name = "hitflash"
-length = 0.19999999999999998
+length = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
