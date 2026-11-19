@@ -6,10 +6,11 @@ extends CharacterBody2D
 @export var knockback_recovery = 3.5
 var knockback = Vector2.ZERO
 
-
 @onready var player: CharacterBody2D = get_tree().get_first_node_in_group("player")
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var anim: AnimationPlayer = $AnimationPlayer
+
+signal remove_from_array(object: Object) #Sinal emitido para a hurtbox do tipo HitOnce 
 
 func _ready() -> void:
 	anim.play("wobble")
@@ -44,4 +45,5 @@ func _on_hurt_box_hurt(damage: Variant, angle: Variant, knockback_strength: Vari
 	hp -= damage;
 	knockback = angle * knockback_strength
 	if hp <= 0:
+		remove_from_array.emit(self)
 		queue_free();
