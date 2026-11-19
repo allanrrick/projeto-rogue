@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://q0xu82gadtp5"]
+
+[ext_resource type="Script" uid="uid://beoiq56obwglo" path="res://particle_fx.gd" id="1_1roc3"]
+
+[node name="ParticleFX" type="Node2D" unique_id=859926718]
+script = ExtResource("1_1roc3")
