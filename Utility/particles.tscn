@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://cusnlfa7qh1ah"]
+
+[node name="Particles" type="GPUParticles2D" unique_id=167209207]

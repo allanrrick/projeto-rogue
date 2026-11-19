@@ -84,7 +84,7 @@ script = ExtResource("1_3ih25")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1863477398]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_bhunq")
-animation = &"idle"
+animation = &"walk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=329784307]
 position = Vector2(1, 5)
