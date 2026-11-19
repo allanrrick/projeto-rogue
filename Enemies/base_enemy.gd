@@ -2,10 +2,14 @@ class_name Enemy
 extends CharacterBody2D
 
 @export var movement_speed: float = 20.0
+@export var hp = 10;
+@export var knockback_recovery = 3.5
+var knockback = Vector2.ZERO
+
+
 @onready var player: CharacterBody2D = get_tree().get_first_node_in_group("player")
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var anim: AnimationPlayer = $AnimationPlayer
-@export var hp = 10;
 
 func _ready() -> void:
 	anim.play("wobble")
@@ -17,6 +21,11 @@ func _physics_process(_delta: float) -> void:
 	
 func movement():
 	var direction: Vector2 = global_position.direction_to(player.global_position)
+	knockback = knockback.move_toward(Vector2.ZERO, knockback_recovery)
+
+	velocity = direction * movement_speed
+	velocity += knockback
+	move_and_slide()
 	
 	if direction.x > 0:
 		sprite.flip_h = true;
@@ -28,12 +37,11 @@ func movement():
 		sprite.play("walk");
 	else:
 		sprite.play("idle");
-	velocity = direction * movement_speed
-	
-	move_and_slide()
+			
 	
 
-func _on_hurt_box_hurt(damage: Variant) -> void:
+func _on_hurt_box_hurt(damage: Variant, angle: Variant, knockback_strength: Variant) -> void:
 	hp -= damage;
+	knockback = angle * knockback_strength
 	if hp <= 0:
 		queue_free();
