@@ -11,6 +11,7 @@ var original_speed = 80.0;
 var actual_speed = original_speed;
 var is_dash_ready = true;
 @onready var sprite = $AnimatedSprite2D
+@onready var anim = $AnimationPlayer
 
 ## Attacks
 var fireBall = preload("res://Scenes/Player/fire_ball.tscn");
@@ -82,6 +83,8 @@ func receber_dano(quantidade: int) -> void:
 	print(vida_atual);
 	if vida_atual <= 0:
 		morrer()
+		return
+	anim.play("hitflash")
 
 func morrer() -> void:
 	esta_morto = true
