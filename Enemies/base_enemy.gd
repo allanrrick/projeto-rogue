@@ -6,6 +6,7 @@ extends CharacterBody2D
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var anim: AnimationPlayer = $AnimationPlayer
 @export var hp = 10;
+@onready var danoInimigo: AudioStreamPlayer = $danoInimigo
 
 func _ready() -> void:
 	anim.play("wobble")
@@ -34,6 +35,10 @@ func movement():
 	
 
 func _on_hurt_box_hurt(damage: Variant) -> void:
+	danoInimigo.play();
+	print(hp);
 	hp -= damage;
 	if hp <= 0:
+		danoInimigo.reparent(get_parent())
+		danoInimigo.finished.connect(danoInimigo.queue_free)
 		queue_free();
