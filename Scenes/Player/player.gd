@@ -12,6 +12,8 @@ var actual_speed = original_speed;
 var is_dash_ready = true;
 @onready var sprite = $AnimatedSprite2D
 @onready var anim = $AnimationPlayer
+var particle_interval = 0.05;
+var particle_elapsed = 0.0;
 
 ## Attacks
 var fireBall = preload("res://Scenes/Player/fire_ball.tscn");
@@ -41,6 +43,14 @@ func _physics_process(delta):
 		is_dash_ready = false;
 		$DashCooldown.start();
 		dash();
+		
+	if not $DashTimer.is_stopped():
+		particle_elapsed += delta;
+
+	if particle_elapsed >= particle_interval:
+		particle_elapsed = 0.0;
+		ParticleFx.add_effect("fire_dash", global_position + Vector2(0, 15));
+	
 
 func movement():
 	## .get_action_strength retorna 1 se a ação estiver sendo executada, e 0 caso contrário.
@@ -65,6 +75,7 @@ func movement():
 
 func dash():
 	actual_speed = original_speed * 3;
+	particle_elapsed = 0.0;
 	## starta o timer de 0.5 segundos.
 	$DashTimer.start();
 
@@ -74,6 +85,7 @@ func _on_timer_timeout() -> void:
 
 func _on_dash_cooldown_timeout() -> void:
 	is_dash_ready = true;
+	
 	
 func receber_dano(quantidade: int) -> void:
 	if esta_morto or quantidade <= 0:

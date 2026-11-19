@@ -32,10 +32,10 @@ func movement():
 	move_and_slide()
 	
 	if direction.x > 0:
-		sprite.flip_h = true;
+		sprite.flip_h = false;
 		sprite.play("walk");
 	elif direction.x < 0:
-		sprite.flip_h = false;
+		sprite.flip_h = true;
 		sprite.play("walk");
 	elif direction.y > 0 or direction.y < 0:
 		sprite.play("walk");
