@@ -87,7 +87,7 @@ func morrer() -> void:
 	esta_morto = true
 	velocity = Vector2.ZERO
 
-func _on_hurt_box_hurt(damage: Variant) -> void:
+func _on_hurt_box_hurt(damage: Variant, _angle, _knockback) -> void:
 	receber_dano(damage);
 
 func attack():
