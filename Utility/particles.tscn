@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://cusnlfa7qh1ah"]
+
+[ext_resource type="Material" uid="uid://difyyjbmtm4l4" path="res://Particles/fire_dash_particles.tres" id="1_qnbrm"]
+[ext_resource type="Script" uid="uid://dpqn2xsc61beq" path="res://Utility/particles.gd" id="1_vcmr3"]
+
+[node name="Particles" type="GPUParticles2D" unique_id=167209207]
+emitting = false
+one_shot = true
+explosiveness = 0.5
+process_material = ExtResource("1_qnbrm")
+script = ExtResource("1_vcmr3")
