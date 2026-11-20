@@ -48,7 +48,7 @@ func movement():
 func _on_hurt_box_hurt(damage: Variant, angle: Variant, knockback_strength: Variant) -> void:
 	hp -= damage;
 	knockback = angle * knockback_strength
-  danoInimigo.play()
+	danoInimigo.play()
 	if hp <= 0:
 		danoInimigo.reparent(get_parent())
 		danoInimigo.finished.connect(danoInimigo.queue_free)
