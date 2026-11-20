@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://ve54rq53kf04"]
+
+[ext_resource type="Script" uid="uid://bvshxubjbmmgn" path="res://Scenes/Loot/exp_loot.gd" id="1_gg1tg"]
+[ext_resource type="Texture2D" uid="uid://dahnscihtonuk" path="res://Assets/Loot/exp_caju.png" id="2_j033b"]
+[ext_resource type="AudioStream" uid="uid://ci6ba8c6nim02" path="res://Assets/Audio/SFX/hitplayer.ogg" id="3_j033b"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(16.75, 16.75)
+
+[node name="ExperienceFruit" type="Area2D" unique_id=1694004884 groups=["loot"]]
+collision_layer = 8
+collision_mask = 0
+script = ExtResource("1_gg1tg")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1925613639]
+texture_filter = 1
+texture = ExtResource("2_j033b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1981739314]
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="SFXCollect" type="AudioStreamPlayer2D" parent="." unique_id=575018208]
+stream = ExtResource("3_j033b")
+
+[connection signal="finished" from="SFXCollect" to="." method="_on_sfx_collect_finished"]
