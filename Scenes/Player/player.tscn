@@ -4,6 +4,8 @@
 [ext_resource type="Shader" uid="uid://drkprdve5vj8m" path="res://Assets/Shaders/hit_flash.gdshader" id="2_mtuoh"]
 [ext_resource type="Texture2D" uid="uid://bo815tilkj7r4" path="res://Assets/Player/char_sheet.png" id="2_xpcdj"]
 [ext_resource type="PackedScene" uid="uid://soxxpmjui745" path="res://Utility/hurt_box.tscn" id="3_6t5aa"]
+[ext_resource type="AudioStream" uid="uid://8bmwnqv1t4lp" path="res://hitPlayer3.wav" id="4_htcer"]
+[ext_resource type="AudioStream" uid="uid://ibgtjndqoot8" path="res://fireBallSound.wav" id="5_htcer"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rt1x0"]
 shader = ExtResource("2_mtuoh")
@@ -146,6 +148,13 @@ monitorable = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyScan" unique_id=1026898205]
 shape = SubResource("CircleShape2D_bhunq")
 
+[node name="SomDano" type="AudioStreamPlayer" parent="." unique_id=655252469]
+stream = ExtResource("4_htcer")
+volume_db = -5.2
+max_polyphony = 2
+
+[node name="fireBallSound" type="AudioStreamPlayer" parent="." unique_id=979954993]
+stream = ExtResource("5_htcer")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1027833136]
 libraries/ = SubResource("AnimationLibrary_0u5uq")
 

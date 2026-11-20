@@ -10,6 +10,7 @@ var knockback = Vector2.ZERO
 @onready var player: CharacterBody2D = get_tree().get_first_node_in_group("player")
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var anim: AnimationPlayer = $AnimationPlayer
+@onready var danoInimigo: AudioStreamPlayer = $danoInimigo
 
 const EXPLOSION_PARTICLE = preload("res://Assets/Shaders/pixel_explosion_particle.tscn")
 
@@ -47,7 +48,10 @@ func movement():
 func _on_hurt_box_hurt(damage: Variant, angle: Variant, knockback_strength: Variant) -> void:
 	hp -= damage;
 	knockback = angle * knockback_strength
+	danoInimigo.play()
 	if hp <= 0:
+		danoInimigo.reparent(get_parent())
+		danoInimigo.finished.connect(danoInimigo.queue_free)
 		remove_from_array.emit(self)
 		var death_particle = EXPLOSION_PARTICLE.instantiate()
 		get_tree().current_scene.add_child(death_particle)

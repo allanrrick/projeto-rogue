@@ -11,6 +11,8 @@ var original_speed = 80.0;
 var actual_speed = original_speed;
 var is_dash_ready = true;
 @onready var sprite = $AnimatedSprite2D
+@onready var som_dano: AudioStreamPlayer = $SomDano
+@onready var som_fireBall: AudioStreamPlayer = $fireBallSound
 @onready var anim = $AnimationPlayer
 var particle_interval = 0.05;
 var particle_elapsed = 0.0;
@@ -91,6 +93,7 @@ func receber_dano(quantidade: int) -> void:
 	if esta_morto or quantidade <= 0:
 		return
 	vida_atual = max(vida_atual - quantidade, 0)
+	som_dano.play();
 	vida_alterada.emit(vida_atual);
 	print(vida_atual);
 	if vida_atual <= 0:
@@ -121,6 +124,7 @@ func _on_fire_ball_attack_timer_timeout() -> void:
 		fireball_attack.position = position;
 		fireball_attack.target = get_random_target();
 		add_child(fireball_attack);
+		som_fireBall.play()
 		fireball_ammo -= 1;
 		if fireball_ammo > 0:
 			fireBallAttackTimer.start();
