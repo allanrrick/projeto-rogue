@@ -4,9 +4,9 @@
 [ext_resource type="Shader" uid="uid://drkprdve5vj8m" path="res://Assets/Shaders/hit_flash.gdshader" id="2_mtuoh"]
 [ext_resource type="Texture2D" uid="uid://bo815tilkj7r4" path="res://Assets/Player/char_sheet.png" id="2_xpcdj"]
 [ext_resource type="PackedScene" uid="uid://soxxpmjui745" path="res://Utility/hurt_box.tscn" id="3_6t5aa"]
-[ext_resource type="AudioStream" uid="uid://8bmwnqv1t4lp" path="res://hitPlayer3.wav" id="4_htcer"]
-[ext_resource type="AudioStream" uid="uid://ibgtjndqoot8" path="res://fireBallSound.wav" id="5_htcer"]
-[ext_resource type="PackedScene" uid="uid://dc0vq2fi7b4oi" path="res://ossos_amaldiçoados.tscn" id="7_0u5uq"]
+[ext_resource type="AudioStream" uid="uid://8bmwnqv1t4lp" path="res://Assets/Audio/SFX/hitPlayer3.wav" id="4_htcer"]
+[ext_resource type="AudioStream" uid="uid://ibgtjndqoot8" path="res://Assets/Audio/SFX/fireBallSound.wav" id="5_htcer"]
+[ext_resource type="PackedScene" uid="uid://dc0vq2fi7b4oi" path="res://Scenes/Weapons/ossos_amaldiçoados.tscn" id="7_0u5uq"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rt1x0"]
 shader = ExtResource("2_mtuoh")

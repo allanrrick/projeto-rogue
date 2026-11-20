@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://dc0vq2fi7b4oi"]
 
-[ext_resource type="Script" uid="uid://drvdf45t3gvii" path="res://ossos_amaldiçoados.gd" id="1_kuxws"]
-[ext_resource type="Script" uid="uid://c0pl7vaqsj3hr" path="res://osso.gd" id="2_tbavp"]
-[ext_resource type="Texture2D" uid="uid://deh1psg3i7wmv" path="res://New Piskel.png" id="3_tbavp"]
+[ext_resource type="Script" uid="uid://drvdf45t3gvii" path="res://Scenes/Weapons/ossos_amaldiçoados.gd" id="1_kuxws"]
+[ext_resource type="Script" uid="uid://c0pl7vaqsj3hr" path="res://Scenes/Weapons/osso.gd" id="2_tbavp"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_kuxws"]
+load_path = "res://.godot/imported/New Piskel.png-4b57200a9b5d4d6f89cce1bdbbdb2eec.ctex"
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8dtab"]
 radius = 9.055386
@@ -69,7 +71,7 @@ script = ExtResource("2_tbavp")
 
 [node name="Sprite2D2" type="Sprite2D" parent="Osso1" unique_id=422391087]
 scale = Vector2(0.6, 0.6)
-texture = ExtResource("3_tbavp")
+texture = SubResource("CompressedTexture2D_kuxws")
 hframes = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Osso1" unique_id=1717720332]
@@ -92,7 +94,7 @@ script = ExtResource("2_tbavp")
 
 [node name="Sprite2D" type="Sprite2D" parent="Osso2" unique_id=404464987]
 scale = Vector2(0.6, 0.6)
-texture = ExtResource("3_tbavp")
+texture = SubResource("CompressedTexture2D_kuxws")
 hframes = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Osso2" unique_id=1230295078]
