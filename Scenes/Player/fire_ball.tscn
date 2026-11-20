@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://ch10e0101hhtm"]
 
-[ext_resource type="Texture2D" uid="uid://cccstdk7uebeu" path="res://Assets/Weapons/Fireball.png" id="1_solch"]
 [ext_resource type="Script" uid="uid://dw2yx1ybse0v" path="res://Scenes/Player/fire_ball.gd" id="1_vbcgg"]
+[ext_resource type="Material" uid="uid://dsrda5x6gtwkr" path="res://Particles/fire_ball_particles.tres" id="2_vbcgg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bhunq"]
 size = Vector2(9.5, 9)
@@ -12,12 +12,6 @@ collision_layer = 4
 collision_mask = 4
 script = ExtResource("1_vbcgg")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1570272153]
-texture_filter = 1
-texture = ExtResource("1_solch")
-hframes = 60
-frame = 15
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=467541186]
 position = Vector2(-0.75, -0.5)
 shape = SubResource("RectangleShape2D_bhunq")
@@ -26,4 +20,12 @@ shape = SubResource("RectangleShape2D_bhunq")
 wait_time = 5.0
 one_shot = true
 
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1499414626]
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=882106505]
+amount = 100
+lifetime = 0.2
+process_material = ExtResource("2_vbcgg")
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

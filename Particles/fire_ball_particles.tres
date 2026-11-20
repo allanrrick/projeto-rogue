@@ -1,0 +1,31 @@
+[gd_resource type="ParticleProcessMaterial" format=3 uid="uid://dsrda5x6gtwkr"]
+
+[sub_resource type="Gradient" id="Gradient_solch"]
+offsets = PackedFloat32Array(0, 0.5, 1)
+colors = PackedColorArray(0.87058824, 0.40392157, 0.19607843, 1, 0.7411765, 0.17254902, 0.02745098, 1, 0.87058824, 0.40392157, 0.19607843, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_sn0t7"]
+gradient = SubResource("Gradient_solch")
+
+[sub_resource type="Curve" id="Curve_vbcgg"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.23595512), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_riqys"]
+curve = SubResource("Curve_vbcgg")
+
+[resource]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+initial_velocity_min = -10.0
+initial_velocity_max = 10.0
+gravity = Vector3(0, 0, 0)
+scale_min = 2.0
+scale_max = 5.0
+scale_curve = SubResource("CurveTexture_riqys")
+color_ramp = SubResource("GradientTexture1D_sn0t7")
+turbulence_enabled = true
+turbulence_influence_max = 0.44300002
+turbulence_initial_displacement_min = 1.490116e-06
+turbulence_initial_displacement_max = 1.490116e-06
