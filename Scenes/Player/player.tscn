@@ -103,7 +103,6 @@ script = ExtResource("1_cvnsp")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=726820664]
 texture_filter = 1
-material = SubResource("ShaderMaterial_rt1x0")
 sprite_frames = SubResource("SpriteFrames_bhunq")
 animation = &"walk"
 
@@ -145,9 +144,6 @@ monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyScan" unique_id=1026898205]
 shape = SubResource("CircleShape2D_bhunq")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1027833136]
-libraries/ = SubResource("AnimationLibrary_0u5uq")
 
 [connection signal="timeout" from="DashTimer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="DashCooldown" to="." method="_on_dash_cooldown_timeout"]

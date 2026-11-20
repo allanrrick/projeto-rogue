@@ -11,7 +11,6 @@ var original_speed = 80.0;
 var actual_speed = original_speed;
 var is_dash_ready = true;
 @onready var sprite = $AnimatedSprite2D
-@onready var anim = $AnimationPlayer
 var particle_interval = 0.05;
 var particle_elapsed = 0.0;
 
@@ -95,14 +94,12 @@ func receber_dano(quantidade: int) -> void:
 	print(vida_atual);
 	if vida_atual <= 0:
 		morrer()
-		return
-	anim.play("hitflash")
 
 func morrer() -> void:
 	esta_morto = true
 	velocity = Vector2.ZERO
 
-func _on_hurt_box_hurt(damage: Variant, _angle, _knockback) -> void:
+func _on_hurt_box_hurt(damage: Variant) -> void:
 	receber_dano(damage);
 
 func attack():
