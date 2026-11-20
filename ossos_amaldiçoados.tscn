@@ -1,26 +1,108 @@
 [gd_scene format=3 uid="uid://dc0vq2fi7b4oi"]
 
-[ext_resource type="Texture2D" uid="uid://dgrc140jtfb3v" path="res://New Piskel-1.png.png" id="1_itlk8"]
 [ext_resource type="Script" uid="uid://drvdf45t3gvii" path="res://ossos_amaldiçoados.gd" id="1_kuxws"]
+[ext_resource type="Script" uid="uid://c0pl7vaqsj3hr" path="res://osso.gd" id="2_tbavp"]
+[ext_resource type="Texture2D" uid="uid://deh1psg3i7wmv" path="res://New Piskel.png" id="3_tbavp"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8dtab"]
-radius = 14.56022
+radius = 9.055386
+
+[sub_resource type="Curve" id="Curve_tbavp"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_a6a4n"]
+curve = SubResource("Curve_tbavp")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_rwyqt"]
+particle_flag_disable_z = true
+gravity = Vector3(0, 0, 0)
+scale_min = 8.0
+scale_max = 8.0
+scale_curve = SubResource("CurveTexture_a6a4n")
+color = Color(0.46666667, 0.09803922, 0.7372549, 0.13725491)
+
+[sub_resource type="Animation" id="Animation_a6a4n"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_f75uw"]
+resource_name = "ossos"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_norqe"]
+_data = {
+&"RESET": SubResource("Animation_a6a4n"),
+&"ossos": SubResource("Animation_f75uw")
+}
 
 [node name="ossosAmaldiçoados" type="Node2D" unique_id=1658946598]
 script = ExtResource("1_kuxws")
 
-[node name="Osso1" type="Area2D" parent="." unique_id=283814432]
+[node name="Osso1" type="Area2D" parent="." unique_id=283814432 groups=["attack"]]
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("2_tbavp")
 
-[node name="Sprite2D" type="Sprite2D" parent="Osso1" unique_id=612698775]
-texture = ExtResource("1_itlk8")
+[node name="Sprite2D2" type="Sprite2D" parent="Osso1" unique_id=422391087]
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("3_tbavp")
+hframes = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Osso1" unique_id=1717720332]
 shape = SubResource("CircleShape2D_8dtab")
 
-[node name="Osso2" type="Area2D" parent="." unique_id=1162712655]
+[node name="maldicao3" type="GPUParticles2D" parent="Osso1" unique_id=242181803]
+amount = 20
+lifetime = 0.7
+process_material = SubResource("ParticleProcessMaterial_rwyqt")
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="Osso1" unique_id=1097857633]
+root_node = NodePath("../../Osso2")
+libraries/ = SubResource("AnimationLibrary_norqe")
+autoplay = &"ossos"
+
+[node name="Osso2" type="Area2D" parent="." unique_id=1162712655 groups=["attack"]]
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("2_tbavp")
 
 [node name="Sprite2D" type="Sprite2D" parent="Osso2" unique_id=404464987]
-texture = ExtResource("1_itlk8")
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("3_tbavp")
+hframes = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Osso2" unique_id=1230295078]
 shape = SubResource("CircleShape2D_8dtab")
+
+[node name="maldicao2" type="GPUParticles2D" parent="Osso2" unique_id=1104964098]
+amount = 20
+lifetime = 0.7
+process_material = SubResource("ParticleProcessMaterial_rwyqt")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Osso2" unique_id=1949795288]
+libraries/ = SubResource("AnimationLibrary_norqe")
+autoplay = &"ossos"
