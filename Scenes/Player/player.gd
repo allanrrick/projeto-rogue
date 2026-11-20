@@ -7,7 +7,7 @@ var vida_atual: int;
 var esta_morto = false;
 
 ## Movement
-var original_speed = 80.0;
+var original_speed = 60.0;
 var actual_speed = original_speed;
 var is_dash_ready = true;
 @onready var sprite = $AnimatedSprite2D
