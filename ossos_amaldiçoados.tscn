@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://dc0vq2fi7b4oi"]
+
+[ext_resource type="Texture2D" uid="uid://dgrc140jtfb3v" path="res://New Piskel-1.png.png" id="1_itlk8"]
+[ext_resource type="Script" uid="uid://drvdf45t3gvii" path="res://ossos_amaldiçoados.gd" id="1_kuxws"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8dtab"]
+radius = 14.56022
+
+[node name="ossosAmaldiçoados" type="Node2D" unique_id=1658946598]
+script = ExtResource("1_kuxws")
+
+[node name="Osso1" type="Area2D" parent="." unique_id=283814432]
+
+[node name="Sprite2D" type="Sprite2D" parent="Osso1" unique_id=612698775]
+texture = ExtResource("1_itlk8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Osso1" unique_id=1717720332]
+shape = SubResource("CircleShape2D_8dtab")
+
+[node name="Osso2" type="Area2D" parent="." unique_id=1162712655]
+
+[node name="Sprite2D" type="Sprite2D" parent="Osso2" unique_id=404464987]
+texture = ExtResource("1_itlk8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Osso2" unique_id=1230295078]
+shape = SubResource("CircleShape2D_8dtab")
