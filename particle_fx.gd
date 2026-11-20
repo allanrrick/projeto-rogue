@@ -1,7 +1,7 @@
 extends Node2D
 
 var effects = {
-	"fire_dash" : load("res://Particles/fire_dash_particles.tres")
+	"fire_dash" : load("res://Particles/fire_dash_particles.tres"),
 };
 var particle = preload("res://Utility/particles.tscn");
 
@@ -17,3 +17,4 @@ func add_effect(effect_name : String, pos: Vector2, parent: Node = null):
 	particle_instance.process_material = effect;
 	particle_instance.global_position = pos;
 	parent.add_child(particle_instance);
+	return particle_instance;
