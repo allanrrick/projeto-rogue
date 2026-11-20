@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://do3xfxh4eipau"
-path="res://.godot/imported/hitInimigo.wav-0e3fc030776b1263f58477b1bef56e0e.sample"
+path="res://.godot/imported/hitInimigo.wav-c68e30418101e8948ead5483db217beb.sample"
 
 [deps]
 
-source_file="res://hitInimigo.wav"
-dest_files=["res://.godot/imported/hitInimigo.wav-0e3fc030776b1263f58477b1bef56e0e.sample"]
+source_file="res://Assets/Audio/SFX/hitInimigo.wav"
+dest_files=["res://.godot/imported/hitInimigo.wav-c68e30418101e8948ead5483db217beb.sample"]
 
 [params]
 

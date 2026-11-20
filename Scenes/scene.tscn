@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://bv6qal1estvej" path="res://Scenes/hud.gd" id="4_hud"]
 [ext_resource type="PackedScene" uid="uid://c5lvfv3ecckjv" path="res://Utility/enemy_spawner.tscn" id="5_3bdrj"]
 [ext_resource type="Texture2D" uid="uid://cyuemtqbbx044" path="res://Assets/tiles/Tileset.png" id="5_yp48q"]
-[ext_resource type="AudioStream" uid="uid://8ypjcb6wmah6" path="res://Untitled.mp3" id="7_ubbiv"]
+[ext_resource type="AudioStream" uid="uid://8ypjcb6wmah6" path="res://Assets/Audio/Music/Untitled.mp3" id="7_ubbiv"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lrus4"]
 bg_color = Color(0.055173576, 0.74277526, 0.091015704, 1)
