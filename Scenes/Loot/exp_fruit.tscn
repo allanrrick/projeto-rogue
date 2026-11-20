@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bvshxubjbmmgn" path="res://Scenes/Loot/exp_loot.gd" id="1_gg1tg"]
 [ext_resource type="Texture2D" uid="uid://dahnscihtonuk" path="res://Assets/Loot/exp_caju.png" id="2_j033b"]
-[ext_resource type="AudioStream" uid="uid://ci6ba8c6nim02" path="res://Assets/Audio/SFX/hitplayer.ogg" id="3_j033b"]
+[ext_resource type="AudioStream" uid="uid://cxx8md7t7bh2h" path="res://Assets/Audio/SFX/collect_exp.wav" id="3_j033b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
 size = Vector2(16.75, 16.75)
