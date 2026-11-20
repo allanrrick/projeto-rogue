@@ -33,7 +33,7 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if target:
 		global_position = global_position.move_toward(target.global_position, speed)
-		speed *= 2*delta
+		speed += 2*delta
 
 
 func collect():
