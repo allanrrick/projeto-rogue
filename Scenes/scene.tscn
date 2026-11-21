@@ -2397,5 +2397,3 @@ position = Vector2(336, -258)
 stream = ExtResource("7_ubbiv")
 volume_db = -12.143
 autoplay = true
-
-[node name="YSort" type="Node2D" parent="." unique_id=1773504648]
