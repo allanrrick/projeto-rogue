@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dgrc140jtfb3v"
-path="res://.godot/imported/New Piskel-1.png.png-75e8387ee5424241bde2018b8583ef18.ctex"
+uid="uid://cwpmbtd6ajd0o"
+path="res://.godot/imported/cursed_bone.png-60b5fe9fd44457650e3cd941d5f592c9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Weapons/New Piskel-1.png.png"
-dest_files=["res://.godot/imported/New Piskel-1.png.png-75e8387ee5424241bde2018b8583ef18.ctex"]
+source_file="res://Assets/Icons/Weapons/cursed_bone.png"
+dest_files=["res://.godot/imported/cursed_bone.png-60b5fe9fd44457650e3cd941d5f592c9.ctex"]
 
 [params]
 

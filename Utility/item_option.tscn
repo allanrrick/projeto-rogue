@@ -1,0 +1,99 @@
+[gd_scene format=3 uid="uid://dnj5pmt571tmr"]
+
+[ext_resource type="Script" uid="uid://tyh57gth1b5j" path="res://Utility/item_option.gd" id="1_gcekk"]
+[ext_resource type="Texture2D" uid="uid://c32tc8k7vyhwn" path="res://Assets/Icons/Weapons/weapon_template.png" id="2_gcekk"]
+
+[sub_resource type="FontFile" id="FontFile_g4v7s"]
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
+cache/0/variation_coordinates = {}
+cache/0/face_index = 0
+cache/0/embolden = 0.0
+cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
+cache/0/spacing_top = 0
+cache/0/spacing_bottom = 0
+cache/0/spacing_space = 0
+cache/0/spacing_glyph = 0
+cache/0/baseline_offset = 0.0
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/15/0/ascent = 0.0
+cache/0/15/0/descent = 0.0
+cache/0/15/0/underline_position = 0.0
+cache/0/15/0/underline_thickness = 0.0
+cache/0/15/0/scale = 1.0
+cache/0/14/0/ascent = 0.0
+cache/0/14/0/descent = 0.0
+cache/0/14/0/underline_position = 0.0
+cache/0/14/0/underline_thickness = 0.0
+cache/0/14/0/scale = 1.0
+cache/0/12/0/ascent = 0.0
+cache/0/12/0/descent = 0.0
+cache/0/12/0/underline_position = 0.0
+cache/0/12/0/underline_thickness = 0.0
+cache/0/12/0/scale = 1.0
+
+[node name="ItemOption" type="ColorRect" unique_id=801304127]
+custom_minimum_size = Vector2(180, 50)
+anchors_preset = -1
+anchor_right = 0.28100002
+anchor_bottom = 0.13900001
+offset_right = 0.1599884
+offset_bottom = -0.04000473
+color = Color(0.73300546, 0.7330054, 0.7330054, 1)
+script = ExtResource("1_gcekk")
+
+[node name="ItemBorder" type="ColorRect" parent="." unique_id=1690289089]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 26.0
+offset_bottom = 26.0
+color = Color(0, 0, 0, 1)
+
+[node name="ItemIcon" type="TextureRect" parent="ItemBorder" unique_id=1944003160]
+texture_filter = 1
+layout_mode = 0
+offset_right = 32.0
+offset_bottom = 32.0
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("2_gcekk")
+
+[node name="LabelLevel" type="Label" parent="." unique_id=1324438371]
+layout_mode = 0
+offset_left = 126.0
+offset_top = 3.0
+offset_right = 166.0
+offset_bottom = 26.0
+theme_override_font_sizes/font_size = 10
+text = "Level: 1"
+
+[node name="LabelDescription" type="Label" parent="." unique_id=1775611493]
+custom_minimum_size = Vector2(170, 20)
+layout_mode = 0
+offset_left = 2.0
+offset_top = 27.0
+offset_right = 172.0
+offset_bottom = 47.0
+theme_override_font_sizes/font_size = 6
+text = "Description"
+autowrap_mode = 3
+
+[node name="LabelName" type="Label" parent="." unique_id=1813115135]
+layout_mode = 0
+offset_left = 29.0
+offset_top = 3.0
+offset_right = 123.0
+offset_bottom = 23.0
+theme_override_fonts/font = SubResource("FontFile_g4v7s")
+theme_override_font_sizes/font_size = 12
+text = "Name"
+clip_text = true
+text_overrun_behavior = 3
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

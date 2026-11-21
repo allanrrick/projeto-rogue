@@ -1,5 +1,6 @@
 extends Area2D
 
+var level = 1
 var speed = 100;
 var damage = 5;
 var attack_size = 1.0;
@@ -18,6 +19,26 @@ signal remove_from_array(object: Object) #Sinal emitido para a hurtbox do tipo H
 func _ready():
 	angle = global_position.direction_to(target);
 	rotation = angle.angle() + deg_to_rad(135);
+	match level:
+		1:
+			hp = 1;
+			speed = 100;
+			damage = 5;
+			attack_size = 1.0 * (1 + player.weapon_size);
+			knockback_strength = 50;
+		2:
+			hp = 1;
+			speed = 100;
+			damage = 5;
+			attack_size = 1.0 * (1 + player.weapon_size);
+			knockback_strength = 50;	
+		3:
+			hp = 2;
+			speed = 100;
+			damage = 8;
+			attack_size = 1.0 * (1 + player.weapon_size);
+			knockback_strength = 50;
+			
 	timer.start();
 	projectile_effect = ParticleFx.add_effect("fire_ball", global_position, self)
 	

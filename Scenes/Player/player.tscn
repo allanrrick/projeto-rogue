@@ -192,6 +192,7 @@ offset_right = 640.0
 offset_bottom = 360.0
 
 [node name="ExperienceBar" type="ProgressBar" parent="GUILayer/GUI" unique_id=2139842418]
+unique_name_in_owner = true
 layout_mode = 0
 offset_right = 640.0
 offset_bottom = 20.0
@@ -199,6 +200,7 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_g4v7s")
 show_percentage = false
 
 [node name="LabelLevel" type="Label" parent="GUILayer/GUI/ExperienceBar" unique_id=1400048769]
+unique_name_in_owner = true
 layout_mode = 0
 offset_left = 540.0
 offset_right = 640.0
@@ -207,6 +209,36 @@ theme_override_font_sizes/font_size = 14
 text = "Level: X"
 horizontal_alignment = 1
 vertical_alignment = 2
+
+[node name="LevelUpPanel" type="Panel" parent="GUILayer/GUI" unique_id=1065551420]
+unique_name_in_owner = true
+process_mode = 2
+visible = false
+layout_mode = 0
+offset_left = 220.0
+offset_top = 800.0
+offset_right = 420.0
+offset_bottom = 1050.0
+
+[node name="LabelLVLUp" type="Label" parent="GUILayer/GUI/LevelUpPanel" unique_id=1807205359]
+visible = false
+layout_mode = 0
+offset_right = 200.0
+offset_bottom = 50.0
+text = "Level Up"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="UpgradeOptions" type="VBoxContainer" parent="GUILayer/GUI/LevelUpPanel" unique_id=1773047715]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 10.0
+offset_top = 50.0
+offset_right = 190.0
+offset_bottom = 100.0
+
+[node name="SFXLevelUp" type="AudioStreamPlayer2D" parent="GUILayer/GUI/LevelUpPanel" unique_id=205648096]
+unique_name_in_owner = true
 
 [connection signal="timeout" from="DashTimer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="DashCooldown" to="." method="_on_dash_cooldown_timeout"]
