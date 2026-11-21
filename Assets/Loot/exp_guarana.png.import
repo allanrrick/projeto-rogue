@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dgrc140jtfb3v"
-path="res://.godot/imported/New Piskel-1.png.png-75e8387ee5424241bde2018b8583ef18.ctex"
+uid="uid://bcffhwvms60ta"
+path="res://.godot/imported/exp_guarana.png-c30e6bb81472272c95cdacf2c877024c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Weapons/New Piskel-1.png.png"
-dest_files=["res://.godot/imported/New Piskel-1.png.png-75e8387ee5424241bde2018b8583ef18.ctex"]
+source_file="res://Assets/Loot/exp_guarana.png"
+dest_files=["res://.godot/imported/exp_guarana.png-c30e6bb81472272c95cdacf2c877024c.ctex"]
 
 [params]
 

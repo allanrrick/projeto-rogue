@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://c5lvfv3ecckjv" path="res://Utility/enemy_spawner.tscn" id="5_3bdrj"]
 [ext_resource type="Texture2D" uid="uid://cyuemtqbbx044" path="res://Assets/tiles/Tileset.png" id="5_yp48q"]
 [ext_resource type="AudioStream" uid="uid://8ypjcb6wmah6" path="res://Assets/Audio/Music/Untitled.mp3" id="7_ubbiv"]
+[ext_resource type="PackedScene" uid="uid://ve54rq53kf04" path="res://Scenes/Loot/exp_fruit.tscn" id="8_6yy46"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lrus4"]
 bg_color = Color(0.055173576, 0.74277526, 0.091015704, 1)
@@ -2243,6 +2244,7 @@ region_enabled = true
 region_rect = Rect2(-1000, -1000, 1000, 1000)
 
 [node name="Player" parent="." unique_id=97180810 instance=ExtResource("2_p6gg1")]
+vida_maxima = 100
 
 [node name="ProgressBar" type="ProgressBar" parent="Player" unique_id=938694572]
 anchors_preset = -1
@@ -2282,6 +2284,13 @@ script = ExtResource("4_hud")
 position = Vector2(336, -258)
 
 [node name="somDeFundo" type="AudioStreamPlayer" parent="." unique_id=1652507814]
+process_mode = 3
 stream = ExtResource("7_ubbiv")
 volume_db = -12.143
 autoplay = true
+
+[node name="Loot" type="Node2D" parent="." unique_id=2105099811 groups=["loot"]]
+
+[node name="ExperienceFruit" parent="Loot" unique_id=1694004884 instance=ExtResource("8_6yy46")]
+position = Vector2(73, -28)
+experience = 100
